@@ -14,7 +14,7 @@ int main(){
     char palabra[20];
     Buff=(char *) malloc(100*sizeof(char));
     char *NombrePersona[cantPersonas];
-    int longNombre;
+    int longNombre,opcion;
     
 
     for (int i = 0; i < cantPersonas; i++)
@@ -30,20 +30,35 @@ int main(){
        
     }
     
-    BuscaNombrePorId(NombrePersona,cantPersonas);
-    printf("\nIngresar nombre a buscar: ");
-    fflush(stdin);
-    scanf("%s",&palabra);
 
-        int aux=BuscaNombrePorPalabra(NombrePersona,palabra);
+    printf("----------------MENU-----------------");
+    printf("\n---Opciones:\n\t 1. Buscar por ID \n\t 2. Buscar por Palabra ");
+    printf("\nIngresar Opcion: ");
+    scanf("%d",&opcion);
+
+    switch (opcion)
+    {
+    case 1:
+        BuscaNombrePorId(NombrePersona,cantPersonas);
+        break;
+    case 2:
+        
+            printf("\nIngresar nombre a buscar: ");
+            fflush(stdin);
+            scanf("%s",&palabra);
+
+            int aux=BuscaNombrePorPalabra(NombrePersona,palabra);
+            
             if(aux==-1){
                 printf("LA PALABRA NO SE ENCONTRO.");
             }else printf("\n\tLa palabra encontrada es: %s",NombrePersona[aux]);
-        
+    break;
     
-    
-        getchar();
-  
+    default:
+    printf("ERROR");
+        break;
+    }
+
     getchar();
     return 0;
 }

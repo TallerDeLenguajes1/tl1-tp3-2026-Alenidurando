@@ -3,7 +3,12 @@
 #include <string.h>
 
 void MostrarPersonas (char* Nombres[]);
+<<<<<<< HEAD
 int BuscarNombre(char* Nombres[],char palabra[]);
+=======
+void BuscarNombre (char* Nombres[],int cantidad);
+
+>>>>>>> busca-nombre
 
 int main(){
 
@@ -11,22 +16,29 @@ int main(){
     char *Buff;
     char palabra[20];
     Buff=(char *) malloc(100*sizeof(char));
-    char *NombrePersona[5];
+    char *NombrePersona[cantPersonas];
     int longNombre;
     
 
     for (int i = 0; i < cantPersonas; i++)
     {
+        fflush(stdin);
         printf("\nIngresar nombre: ");
         scanf("%s",Buff);
+        
         longNombre=strlen(Buff);
         NombrePersona[i]= (char *) malloc(longNombre+1*sizeof(char));
         strcpy(NombrePersona[i],Buff);
+<<<<<<< HEAD
         fflush(stdin);
+=======
+        
+>>>>>>> busca-nombre
        
     }
     
     //MostrarPersonas (NombrePersona);
+<<<<<<< HEAD
     printf("ingresar nombre a buscar: ");
     fflush(stdin);
     scanf("%s",&palabra);
@@ -39,6 +51,11 @@ int main(){
     
     
         getchar();
+=======
+    BuscarNombre (NombrePersona,cantPersonas);
+
+    getchar();
+>>>>>>> busca-nombre
     return 0;
 }
 
@@ -52,6 +69,7 @@ void MostrarPersonas (char* Nombres[]){
 
 }
 
+<<<<<<< HEAD
 int BuscarNombre(char* Nombres[],char palabra[]){
 
 char *puntero;
@@ -68,4 +86,27 @@ char *puntero;
         return -1;
     }
     
+=======
+void BuscarNombre (char* Nombres[],int cantidad){
+    int id; //id a buscar. 
+    printf("ingresar ID a buscar: ");
+    fflush(stdin);
+    scanf("%d",&id);
+    int control=0; //variable de control para corroborar si el id existe en el vector.
+
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (id==i){
+             printf("\nNombre en posicion del id [%d]: %s",i,Nombres[i]);
+             i=cantidad; //igualando a la condicion para salir del ciclo ya que el id es unico.
+             control=1;
+        }
+
+    }
+    
+    if(control==0){
+        printf("\nNo se encontro el valor buscado ");
+    }
+
+>>>>>>> busca-nombre
 }

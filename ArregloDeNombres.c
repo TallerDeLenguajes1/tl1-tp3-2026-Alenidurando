@@ -3,12 +3,9 @@
 #include <string.h>
 
 void MostrarPersonas (char* Nombres[]);
-<<<<<<< HEAD
-int BuscarNombre(char* Nombres[],char palabra[]);
-=======
-void BuscarNombre (char* Nombres[],int cantidad);
+int BuscaNombrePorPalabra(char* Nombres[],char palabra[]);
+void BuscaNombrePorId (char* Nombres[],int cantidad);
 
->>>>>>> busca-nombre
 
 int main(){
 
@@ -29,21 +26,16 @@ int main(){
         longNombre=strlen(Buff);
         NombrePersona[i]= (char *) malloc(longNombre+1*sizeof(char));
         strcpy(NombrePersona[i],Buff);
-<<<<<<< HEAD
         fflush(stdin);
-=======
-        
->>>>>>> busca-nombre
        
     }
     
-    //MostrarPersonas (NombrePersona);
-<<<<<<< HEAD
-    printf("ingresar nombre a buscar: ");
+    BuscaNombrePorId(NombrePersona,cantPersonas);
+    printf("\nIngresar nombre a buscar: ");
     fflush(stdin);
     scanf("%s",&palabra);
 
-        int aux=BuscarNombre(NombrePersona,palabra);
+        int aux=BuscaNombrePorPalabra(NombrePersona,palabra);
             if(aux==-1){
                 printf("LA PALABRA NO SE ENCONTRO.");
             }else printf("\n\tLa palabra encontrada es: %s",NombrePersona[aux]);
@@ -51,11 +43,8 @@ int main(){
     
     
         getchar();
-=======
-    BuscarNombre (NombrePersona,cantPersonas);
-
+  
     getchar();
->>>>>>> busca-nombre
     return 0;
 }
 
@@ -69,8 +58,7 @@ void MostrarPersonas (char* Nombres[]){
 
 }
 
-<<<<<<< HEAD
-int BuscarNombre(char* Nombres[],char palabra[]){
+int BuscaNombrePorPalabra(char* Nombres[],char palabra[]){
 
 char *puntero;
     
@@ -85,9 +73,9 @@ char *puntero;
     if(puntero==NULL){
         return -1;
     }
+};
     
-=======
-void BuscarNombre (char* Nombres[],int cantidad){
+void BuscaNombrePorId (char* Nombres[],int cantidad){
     int id; //id a buscar. 
     printf("ingresar ID a buscar: ");
     fflush(stdin);
@@ -108,5 +96,4 @@ void BuscarNombre (char* Nombres[],int cantidad){
         printf("\nNo se encontro el valor buscado ");
     }
 
->>>>>>> busca-nombre
-}
+};
